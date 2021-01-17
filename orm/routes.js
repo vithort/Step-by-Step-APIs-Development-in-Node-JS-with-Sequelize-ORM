@@ -222,6 +222,69 @@ router.get('/users', function (req, res) {
     });
 });
 
+// raw query to select data
+router.get('/user-raw', function (req, res) {
+  // select
+  sequelize
+    .query('SELECT * from tbl_users', {
+      type: sequelize.QueryTypes.SELECT,
+    })
+    .then((response) => {
+      res.status(200).json({
+        status: 1,
+        message: 'Users found!',
+        data: response,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+// raw query to update data
+router.put('/user-update-raw', function (req, res) {
+  // update
+  sequelize
+    .query(
+      "UPDATE tbl_users SET name = '" +
+        req.body.name +
+        "', email = '" +
+        req.body.email +
+        "' WHERE id = " +
+        req.body.id,
+      {
+        type: sequelize.QueryTypes.UPDATE,
+      }
+    )
+    .then((response) => {
+      res.status(200).json({
+        status: 1,
+        message: 'User updated successfully!',
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+// raw query to delete data
+router.delete('/user-delete-raw/:id', function (req, res) {
+  // delete
+  sequelize
+    .query('DELETE from tbl_users WHERE id = ' + req.params.id, {
+      type: sequelize.QueryTypes.DELETE,
+    })
+    .then((response) => {
+      res.status(200).json({
+        status: 1,
+        message: 'User deleted successfully!',
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 // delete api method
 router.delete('/user/:id', function (req, res) {
   User.destroy({
