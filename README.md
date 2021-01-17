@@ -4,6 +4,8 @@ Step by Step APIs Development in Node JS with Sequelize ORM
 
 ## Express JS
 
+Link: [ExpressJS](https://expressjs.com/)
+
 - Init Repository
 
 ```npm
@@ -42,6 +44,8 @@ nodemon server.js
 
 ## Sequelize ORM
 
+Link: [Sequelize](www.sequelize.org)
+
 - Init Repository
 
 ```npm
@@ -53,3 +57,7 @@ npm init -y
 ```npm
 npm i sequelize mysql2 express body-parser --save
 ```
+
+### Sequelize: Datatypes
+
+Link: [Datatypes](www.sequelize.org/v5/manual/data-types.html)
