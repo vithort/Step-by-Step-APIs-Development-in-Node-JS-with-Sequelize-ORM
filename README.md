@@ -2,6 +2,8 @@
 
 Step by Step APIs Development in Node JS with Sequelize ORM
 
+## Express JS
+
 - Init Repository
 
 ```npm
@@ -36,4 +38,18 @@ nodemon
 
 ```npm
 nodemon server.js
+```
+
+## Sequelize ORM
+
+- Init Repository
+
+```npm
+npm init -y
+```
+
+- Install Dependencies
+
+```npm
+npm i sequelize mysql2 express body-parser --save
 ```
