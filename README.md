@@ -13,3 +13,35 @@ npm init
 ```
 npm i express --save
 ```
+
+- Init Repository
+
+````
+```npm
+npm init
+````
+
+- Install Express
+
+````
+```npm
+npm i express --save
+````
+
+- Run App
+
+```npm
+node app.js
+```
+
+- Install Nodemon
+
+```npm
+npm -g nodemon
+```
+
+- Execute Nodemon
+
+```npm
+nodemon
+```
