@@ -222,6 +222,28 @@ router.get('/users', function (req, res) {
     });
 });
 
+// delete api method
+router.delete('/user/:id', function (req, res) {
+  User.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((data) => {
+      res.status(200).json({
+        status: 1,
+        message: 'User has been deleted successfully!',
+      });
+    })
+    .catch((error) => {
+      res.status(500).json({
+        status: 0,
+        message: 'Failed to delete user!',
+        data: error,
+      });
+    });
+});
+
 // update api method
 router.put('/user', function (req, res) {
   User.update(
