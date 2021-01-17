@@ -4,29 +4,15 @@ Step by Step APIs Development in Node JS with Sequelize ORM
 
 - Init Repository
 
-```
+```npm
 npm init
 ```
 
 - Install Express
 
-```
-npm i express --save
-```
-
-- Init Repository
-
-````
-```npm
-npm init
-````
-
-- Install Express
-
-````
 ```npm
 npm i express --save
-````
+```
 
 - Run App
 
@@ -44,4 +30,10 @@ npm -g nodemon
 
 ```npm
 nodemon
+```
+
+- Execute Nodemon in Specific File
+
+```npm
+nodemon server.js
 ```
