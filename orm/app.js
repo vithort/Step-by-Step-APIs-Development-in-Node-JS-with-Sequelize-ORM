@@ -65,6 +65,71 @@ var User = sequelize.define(
 // sync model
 sequelize.sync();
 
+// create models using second way
+/*
+const Model = Sequelize.Model;
+
+// USER Model
+class User extends Model {}
+User.init(
+  {
+    // parameters
+    id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    name: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: Sequelize.STRING,
+    },
+    rollNo: {
+      type: Sequelize.INTEGER,
+    },
+    status: {
+      type: Sequelize.ENUM('1', '0'),
+      defaultValue: '1',
+    },
+  },
+  { timestamps: false, modelName: 'tbl_users', sequelize }
+);
+
+// BOOK Model
+class Book extends Model {}
+Book.init(
+  {
+    // parameters
+    id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    name: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    amount: {
+      type: Sequelize.INTEGER,
+    },
+    status: {
+      type: Sequelize.ENUM('1', '0'),
+      defaultValue: '1',
+    },
+  },
+  { timestamps: false, modelName: 'tbl_books', sequelize }
+);
+
+// User.sync()
+// Book.sync()
+
+// sequelize.sync();
+*/
+
 // default welcome page route
 app.get('/', function (req, res) {
   res.status(200).json({
