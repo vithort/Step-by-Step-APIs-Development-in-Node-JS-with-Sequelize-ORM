@@ -201,6 +201,25 @@ router.post('/bulk-user', function (req, res) {
     });
 });
 
+// get all users
+router.get('/users', function (req, res) {
+  User.findAll({
+    where: {
+      status: '0',
+    },
+  })
+    .then((users) => {
+      res.status(200).json({
+        status: 1,
+        message: 'Users found!',
+        data: users,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 // default welcome page route
 router.get('/', function (req, res) {
   res.status(200).json({
