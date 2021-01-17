@@ -1,8 +1,12 @@
 const express = require('express');
 
+const bodyParser = require('body-parser');
+
 const Sequelize = require('sequelize');
 
 const app = express();
+
+app.use(bodyParser.json());
 
 const PORT = 8087;
 
@@ -64,6 +68,41 @@ var User = sequelize.define(
 
 // sync model
 sequelize.sync();
+
+// create some data to table
+
+app.post('/user', function (req, res) {
+  /*
+  User.create({
+    name: 'Vithor Carvalho',
+    email: 'vithort@gmail.com',
+    rollNo: 21,
+    status: 1,
+  })
+    .then(function (response) {
+      res.status(200).json({
+        status: 1,
+        messsage: 'User has been created successfully!',
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  */
+
+  // console.log(re.body);
+  
+  User.create(req.body)
+    .then(function (response) {
+      res.status(200).json({
+        status: 1,
+        message: 'User has been created successfully!',
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+});
 
 // create models using second way
 /*
