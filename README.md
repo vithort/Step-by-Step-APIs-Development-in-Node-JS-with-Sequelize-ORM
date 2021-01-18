@@ -61,3 +61,19 @@ npm i sequelize mysql2 express body-parser --save
 ### Sequelize: Datatypes
 
 Link: [Datatypes](www.sequelize.org/v5/manual/data-types.html)
+
+## JWT
+
+Link: [jwt](https://jwt.io)
+
+- Init Repository
+
+```npm
+npm init -y
+```
+
+- Install Packages
+
+```npm
+npm i express body-parser sequelize mysql2 jsonwebtoken bcrypt --save
+```
