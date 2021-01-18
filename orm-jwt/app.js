@@ -59,6 +59,55 @@ var User = sequelize.define(
 
 User.sync(); // sync this model to database
 
+// login user api
+app.post('/login', (req, res) => {
+  User.findOne({
+    where: {
+      email: req.body.email,
+    },
+  })
+    .then((user) => {
+      if (user) {
+        // we have user data
+        if (bcrypt.compareSync(req.body.password, user.password)) {
+          let userToken = JWT.sign(
+            {
+              email: user.email,
+              id: user.id,
+            },
+            'onlinewebtutorkey',
+            {
+              expiresIn: 600000, // this will be in ms, here 10 mins is the limit
+              notBefore: 60000, // after 1 min we are able to use this token value
+              audience: 'size-users',
+            }
+          );
+          // password match
+          res.status(200).json({
+            status: 1,
+            message: 'User logged in successfully!',
+            token: userToken,
+          });
+        } else {
+          // password didin't match
+          res.status(500).json({
+            status: 0,
+            message: 'Password didn`t match!',
+          });
+        }
+      } else {
+        // we don't have user data
+        res.status(500).json({
+          status: 0,
+          message: 'User not exists with this email address!',
+        });
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 // register user api
 app.post('/user', (req, res) => {
   let name = req.body.name;
