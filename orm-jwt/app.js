@@ -3,6 +3,7 @@ const Sequelize = require('sequelize');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const JWT = require('jsonwebtoken');
+const JwtConfig = require('./config/jwt-config');
 
 const app = express();
 
@@ -75,11 +76,13 @@ app.post('/login', (req, res) => {
               email: user.email,
               id: user.id,
             },
-            'onlinewebtutorkey',
+            JwtConfig.secret,
             {
-              expiresIn: 600000, // this will be in ms, here 10 mins is the limit
-              notBefore: 60000, // after 1 min we are able to use this token value
-              audience: 'size-users',
+              expiresIn: JwtConfig.expiresIn, // this will be in ms, here 10 mins is the limit
+              notBefore: JwtConfig.notBefore, // after 1 min we are able to use this token value
+              audience: JwtConfig.audience,
+              issuer: JwtConfig.issuer,
+              algorithm: JwtConfig.algorithm,
             }
           );
           // password match
