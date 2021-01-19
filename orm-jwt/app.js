@@ -60,6 +60,38 @@ var User = sequelize.define(
 
 User.sync(); // sync this model to database
 
+// validate token api
+app.post('/validate', (req, res) => {
+  //console.log(req.headers);
+  let userToken = req.headers['authorization'];
+  if (userToken) {
+    // we have token
+    JWT.verify(userToken, JwtConfig.secret, (error, decoded) => {
+      if (error) {
+        //console.log(error);
+        res.status(500).json({
+          status: 0,
+          message: 'Invalid token!',
+          data: error,
+        });
+      } else {
+        //console.log(decoded);
+        res.status(200).json({
+          status: 1,
+          message: 'Token is valid!',
+          data: decoded,
+        });
+      }
+    });
+  } else {
+    // not getting token value
+    res.status(500).json({
+      status: 0,
+      message: 'Please provide authentication token value!',
+    });
+  }
+});
+
 // login user api
 app.post('/login', (req, res) => {
   User.findOne({
