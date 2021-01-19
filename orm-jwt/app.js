@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const JWT = require('jsonwebtoken');
 const JwtConfig = require('./config/jwt-config');
+const JwtMiddleware = require('./config/jwt-middleware');
 
 const app = express();
 
@@ -59,6 +60,15 @@ var User = sequelize.define(
 );
 
 User.sync(); // sync this model to database
+
+// user profile data
+app.post('/profile', JwtMiddleware.checkToken, (req, res) => {
+  res.status(200).json({
+    status: 1,
+    message: 'Token value parser!',
+    userdata: req.user,
+  });
+});
 
 // validate token api
 app.post('/validate', (req, res) => {
