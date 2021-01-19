@@ -109,3 +109,15 @@ npx sequelize --help
 ```npm
 npx sequelize init
 ```
+
+- Database: Create
+
+```npm
+npx sequelize db:create
+```
+
+- Database: Drop
+
+```npm
+npx sequelize db:drop
+```
