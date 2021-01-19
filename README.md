@@ -77,3 +77,35 @@ npm init -y
 ```npm
 npm i express body-parser sequelize mysql2 jsonwebtoken bcrypt --save
 ```
+
+## Sequelize: ORM Cli
+
+- Init Repository
+
+```npm
+npm init -y
+```
+
+- Install Dependencies
+
+```npm
+npm i express sequelize mysql2 body-parser --save
+```
+
+- Install Sequelize CLI (command-line interface)
+
+```npm
+npm i sequelize-cli --save
+```
+
+- Informations about Sequelize CLI
+
+```npm
+npx sequelize --help
+```
+
+- Init Sequelize Project
+
+```npm
+npx sequelize init
+```
