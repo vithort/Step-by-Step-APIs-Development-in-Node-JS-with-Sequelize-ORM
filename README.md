@@ -193,3 +193,9 @@ npx sequelize seed:generate  --name test-products
 ```npm
 npx sequelize db:seed:all
 ```
+
+- Execute Seed Specified
+
+```npm
+npx sequelize db:seed --seed 20210120232437-test-categories.js
+```
