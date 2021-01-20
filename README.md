@@ -175,3 +175,21 @@ npx sequelize db:migrate:undo
 ```npm
 npx sequelize db:migrate:status
 ```
+
+- Seed Help
+
+```npm
+npx sequelize seed:generate  --help
+```
+
+- Create Seed Help
+
+```npm
+npx sequelize seed:generate  --name test-products
+```
+
+- Execute Seed
+
+```npm
+npx sequelize db:seed:all
+```
