@@ -121,3 +121,27 @@ npx sequelize db:create
 ```npm
 npx sequelize db:drop
 ```
+
+- Generate Model Help
+
+```npm
+npx sequelize model:generate --help
+```
+
+- Generate Model
+
+```npm
+npx sequelize model:generate --name Product --attributes name:string,description:string,amount:integer
+```
+
+or
+
+```npm
+npx sequelize model:generate --name=Product --attributes=name:string,description:string,amount:integer
+```
+
+- Sequelize Migration
+
+```npm
+npx sequelize db:migrate
+```
