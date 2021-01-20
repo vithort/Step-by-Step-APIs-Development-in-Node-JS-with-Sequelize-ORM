@@ -199,3 +199,15 @@ npx sequelize db:seed:all
 ```npm
 npx sequelize db:seed --seed 20210120232437-test-categories.js
 ```
+
+Execute Delete Seed
+
+```npm
+npx sequelize db:seed:undo:all
+```
+
+Execute Delete Seed Specified
+
+```npm
+npx sequelize db:seed:undo --seed 20210120232437-test-categories.js
+```
