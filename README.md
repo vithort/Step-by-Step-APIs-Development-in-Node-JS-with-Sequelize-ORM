@@ -211,3 +211,11 @@ Execute Delete Seed Specified
 ```npm
 npx sequelize db:seed:undo --seed 20210120232437-test-categories.js
 ```
+
+- Install Faker Package
+
+Link: [faker.js](https://www.npmjs.com/package/faker)
+
+```npm
+npm i faker --save
+```

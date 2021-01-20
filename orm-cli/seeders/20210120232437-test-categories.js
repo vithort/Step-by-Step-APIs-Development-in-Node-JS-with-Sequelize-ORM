@@ -1,5 +1,8 @@
 'use strict';
 
+const { image } = require('faker');
+const faker = require('faker');
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     /**
@@ -11,32 +14,8 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    await queryInterface.bulkInsert(
-      'Categories',
-      [
-        {
-          name: 'Category 1',
-          categoryImage: null,
-          status: 1,
-        },
-        {
-          name: 'Category 2',
-          categoryImage: null,
-          status: 1,
-        },
-        {
-          name: 'Category 3',
-          categoryImage: null,
-          status: 0,
-        },
-        {
-          name: 'Category 4',
-          categoryImage: null,
-          status: 1,
-        },
-      ],
-      {}
-    );
+    const items = generateFakeItems(150);
+    await queryInterface.bulkInsert('Categories', items, {});
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -49,3 +28,17 @@ module.exports = {
     await queryInterface.bulkDelete('Categories', null, {});
   },
 };
+
+function generateFakeItems(rowsCount) {
+  // generate code for fake data
+  const data = [];
+  for (let k = 0; k < rowsCount; k++) {
+    const newItem = {
+      name: faker.commerce.department(),
+      categoryImage: faker.image.imageUrl(),
+      status: faker.random.arrayElement([1, 0]),
+    };
+    data.push(newItem);
+  }
+  return data;
+}
