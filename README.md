@@ -128,7 +128,7 @@ npx sequelize db:drop
 npx sequelize model:generate --help
 ```
 
-- Generate Model
+- Generate Model Product
 
 ```npm
 npx sequelize model:generate --name Product --attributes name:string,description:string,amount:integer
@@ -144,4 +144,34 @@ npx sequelize model:generate --name=Product --attributes=name:string,description
 
 ```npm
 npx sequelize db:migrate
+```
+
+- Sequelize Model Category
+
+```npm
+npx sequelize model:generate --name Category --attributes name:string,categoryImage:string,status:integer
+```
+
+- Run Pending Migrations
+
+```npm
+npx sequelize db:migrate
+```
+
+- Undo All Migration
+
+```npm
+npx sequelize db:migrate:undo:all
+```
+
+- Undo Last Migration
+
+```npm
+npx sequelize db:migrate:undo
+```
+
+- List Status of Migrations
+
+```npm
+npx sequelize db:migrate:status
 ```
