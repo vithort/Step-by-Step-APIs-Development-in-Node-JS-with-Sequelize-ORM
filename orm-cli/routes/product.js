@@ -10,7 +10,7 @@ router.get('/products', (req, res) => {
   productModel
     .findAll({
       attributes: ['id', 'name'],
-      limit: 10, // total count of products we want at request
+      // limit: 10, // total count of products we want at request
       // offset: 4, // we are setting our first index value
       // order: [['id', 'DESC']],
       // order: [['name', 'ASC']],
@@ -28,8 +28,28 @@ router.get('/products', (req, res) => {
           [Op.like]: 'F%'
         },
         */
+        /*
         id: {
           [Op.gt]: 210,
+        },
+        */
+        /*
+        id: {
+          [Op.gte]: 200,
+          [Op.lt]: 203
+        }
+        */
+        /*
+        id: {
+          [Op.or]: {
+            [Op.lt]: 120,
+            [Op.gt]: 203,
+          },
+        },
+        */
+        [Op.or]: {
+          id: { [Op.eq]: 120 },
+          name: { [Op.eq]: 'Incredible Concrete Soap' },
         },
       },
     })
