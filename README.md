@@ -219,3 +219,21 @@ Link: [faker.js](https://www.npmjs.com/package/faker)
 ```npm
 npm i faker --save
 ```
+
+- Create Model Student
+
+```npm
+npx sequelize model:generate --name Student --attributes name:string,roll_no:integer,email:string
+```
+
+- Run Pending Migrations
+
+```npm
+npx sequelize db:migrate
+```
+
+- Install Packages
+
+```npm
+npm i bcrypt jsonwebtoken --save
+```
