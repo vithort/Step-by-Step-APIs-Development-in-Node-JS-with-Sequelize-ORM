@@ -13,9 +13,47 @@ module.exports = (sequelize, DataTypes) => {
   }
   Student.init(
     {
-      name: DataTypes.STRING,
-      roll_no: DataTypes.INTEGER,
-      email: DataTypes.STRING,
+      name: {
+        type: DataTypes.STRING,
+        /*
+        validate: {
+          notEmpty: true,
+        },
+        */
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'Name field should have a value!',
+          },
+          len: {
+            args: [5, 20],
+            msg: 'Length value should from 5 to 20 characters!',
+          },
+        },
+      },
+      roll_no: {
+        type: DataTypes.INTEGER,
+        validate: {
+          min: {
+            args: 1,
+            msg: 'Roll No should have minimun value of 1!',
+          },
+        },
+      },
+      email: {
+        type: DataTypes.STRING,
+        /*
+        validate: {
+          isEmail: true,
+        },
+        */
+        validate: {
+          isEmail: {
+            args: true,
+            msg: 'Email value is not a valid value!',
+          },
+        },
+      },
       password: DataTypes.STRING,
     },
     {

@@ -331,3 +331,7 @@ npx sequelize model:generate --name UserRole --attributes userId:integer,roleId:
 ```npm
 npx sequelize db:migrate
 ```
+
+## Sequelize: Validations
+
+Link: [Sequelize Validators](https://sequelize.org/master/manual/validations-and-constraints.html)

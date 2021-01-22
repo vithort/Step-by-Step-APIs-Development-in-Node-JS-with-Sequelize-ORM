@@ -104,6 +104,9 @@ router.post('/student', (req, res) => {
               status: 1,
               message: 'Student created successfully!',
             });
+          })
+          .catch((data) => {
+            res.status(500).json({ data: data });
           });
       }
     });
