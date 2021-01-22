@@ -291,3 +291,43 @@ npx sequelize model:generate --name Comment --attributes comment_text:text,postI
 ```npm
 npx sequelize db:migrate
 ```
+
+## Sequelize: Relationship Many to Many
+
+- Init Repository
+
+```npm
+npm init -y
+```
+
+- Install Dependencies
+
+```npm
+npm i express sequelize mysql2 --save
+```
+
+- Install Sequelize CLI (command-line interface)
+
+```npm
+npm i sequelize-cli --save
+```
+
+- Init Sequelize Project
+
+```npm
+npx sequelize init
+```
+
+- Create Models
+
+```npm
+npx sequelize model:generate --name User --attributes name:string,email:string
+npx sequelize model:generate --name Role --attributes name:text
+npx sequelize model:generate --name UserRole --attributes userId:integer,roleId:integer
+```
+
+- Execute Migrations
+
+```npm
+npx sequelize db:migrate
+```
