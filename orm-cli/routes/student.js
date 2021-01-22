@@ -3,11 +3,28 @@ const studentModel = require('../models').Student;
 const bcrypt = require('bcrypt');
 const JWT = require('jsonwebtoken');
 const jwtConfig = require('../config/jwt-config');
+const jwtMiddleware = require('../config/jwt-middleware');
+
 const Sequelize = require('sequelize');
 
 const Op = Sequelize.Op;
 
 const router = express.Router();
+
+// profile api for student
+router.post('/profile', jwtMiddleware.checkToken, (req, res) => {
+  let student_id = req.data.id;
+  studentModel.findByPk(student_id).then((student) => {
+    if (student) {
+      res.status(200).json({
+        status: 1,
+        message: 'Profile data!',
+        data: student,
+      });
+    } else {
+    }
+  });
+});
 
 // login api for student
 router.post('/login', (req, res) => {
