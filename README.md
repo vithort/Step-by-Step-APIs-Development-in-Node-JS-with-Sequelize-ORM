@@ -237,3 +237,42 @@ npx sequelize db:migrate
 ```npm
 npm i bcrypt jsonwebtoken --save
 ```
+
+## Sequelize: Relationship
+
+- Init Repository
+
+```npm
+npm init -y
+```
+
+- Install Dependencies
+
+```npm
+npm i express sequelize mysql2 --save
+```
+
+- Install Sequelize CLI (command-line interface)
+
+```npm
+npm i sequelize-cli --save
+```
+
+- Init Sequelize Project
+
+```npm
+npx sequelize init
+```
+
+- Create Models
+
+```npm
+npx sequelize model:generate --name User --attributes name:string,phoneNo:string
+npx sequelize model:generate --name Email --attributes emailAddress:string,userId:integer
+```
+
+- Execute Migrations
+
+```npm
+npx sequelize db:migrate
+```
