@@ -335,3 +335,44 @@ npx sequelize db:migrate
 ## Sequelize: Validations
 
 Link: [Sequelize Validators](https://sequelize.org/master/manual/validations-and-constraints.html)
+
+## About PM2: Production Process Manager
+
+Link: [pm2](https://pm2.keymetrics.io/)
+
+- Install Package
+
+```npm
+npm i pm2 -g
+```
+
+- Start Application with PM2
+
+```npm
+pm2 start app.js
+```
+
+- List Process
+
+```npm
+pm2 list
+```
+
+- Terminate Proccess
+
+```npm
+pm2 stop app.js
+```
+
+- Show Description of Process
+
+```npm
+pm2 describe <ID>
+pm2 describe 0
+```
+
+- Monitoring Logs
+
+```npm
+pm2 monit
+```
