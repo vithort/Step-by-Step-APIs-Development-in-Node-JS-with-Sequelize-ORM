@@ -238,7 +238,7 @@ npx sequelize db:migrate
 npm i bcrypt jsonwebtoken --save
 ```
 
-## Sequelize: Relationship
+## Sequelize: Relationship One to One
 
 - Init Repository
 
@@ -269,6 +269,21 @@ npx sequelize init
 ```npm
 npx sequelize model:generate --name User --attributes name:string,phoneNo:string
 npx sequelize model:generate --name Email --attributes emailAddress:string,userId:integer
+```
+
+- Execute Migrations
+
+```npm
+npx sequelize db:migrate
+```
+
+## Sequelize: Relationship One to Many
+
+- Create Models
+
+```npm
+npx sequelize model:generate --name Post --attributes name:string,context:text
+npx sequelize model:generate --name Comment --attributes comment_text:text,postId:integer
 ```
 
 - Execute Migrations
